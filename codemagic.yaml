@@ -1,6 +1,7 @@
 workflows:
-  android-build:
-    name: Nextime 3D Android Build
+  android-debug:
+    name: Nextime 3D Debug APK
+
     max_build_duration: 60
 
     environment:
@@ -12,21 +13,20 @@ workflows:
         - ~/.gradle/wrapper
 
     scripts:
-      - name: Set up permissions
-        script: chmod +x gradlew
+      - name: Grant execute permission
+        script: |
+          chmod +x gradlew
 
       - name: Clean project
-        script: ./gradlew clean
+        script: |
+          ./gradlew clean
 
       - name: Build Debug APK
-        script: ./gradlew assembleDebug
-
-      - name: Build Release APK
-        script: ./gradlew assembleRelease
+        script: |
+          ./gradlew assembleDebug --stacktrace --no-daemon
 
     artifacts:
       - app/build/outputs/apk/debug/*.apk
-      - app/build/outputs/apk/release/*.apk
 
     publishing:
       email:
