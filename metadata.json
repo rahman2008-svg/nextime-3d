@@ -1,0 +1,6 @@
+{
+  "name": "NexTime 3D",
+  "description": "Premium Smart Watch Alarm OS with Canvas-based 3D Watch Renderer, Smart Alarm Engine, Focus Mode, and Offline Sleep Intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
